@@ -15,7 +15,6 @@ var target string
 var checkMap = map[string]bool{}
 
 func main() {
-	log.Println(os.Args)
 	initFiles()
 	readFiles()
 }
@@ -55,8 +54,6 @@ func initFiles()  {
 	}
 	sources = files[:len(files) - 1]
 	target = files[len(files) - 1] // last param
-	log.Println(sources)
-	log.Println(target)
 }
 
 func readFile(fileName string) ([][]string,error)  {
@@ -65,14 +62,5 @@ func readFile(fileName string) ([][]string,error)  {
 		return nil,err
 	}
 	defer csvFile.Close()
-	csvLines, err := csv.NewReader(csvFile).ReadAll()
-	if err != nil {
-		return nil,err
-	}
-	for _,line := range csvLines {
-		for _, cell := range line {
-			log.Println(cell)
-		}
-	}
-	return csvLines,nil
+	return csv.NewReader(csvFile).ReadAll()
 }
