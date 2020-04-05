@@ -12,4 +12,10 @@
 *.out
 
 # Dependency directories (remove the comment below to include it)
-# vendor/
+vendor/
+.idea/
+go.sum
+mergecsv
+sample1.csv
+sample2.csv
+out.csv
